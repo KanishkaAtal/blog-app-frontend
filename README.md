@@ -8,7 +8,7 @@ Full Stack Web Development internship (Module 1: Frontend Development).
 - `register.html` – Create an account
 - `login.html` – Log in
 - `dashboard.html` – Your posts (edit / delete)
-- `create-blog.html` – Write or edit a post
+- `create.html` – Write or edit a post
 
 ## Features
 - Responsive layout (mobile, tablet, desktop)
