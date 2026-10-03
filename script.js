@@ -23,8 +23,8 @@ function renderLayout() {
   const links = user
     ? `<a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="create-blog.html">Create Blog</a><a href="#" id="logout" class="btn ghost">Log out</a>`
     : `<a href="index.html">Home</a><a href="login.html">Login</a><a href="register.html" class="btn">Register</a>`;
-  $("#site-header").innerHTML = `<a href="index.html" class="logo">Inkwell</a><nav aria-label="Main">${links}</nav>`;
-  $("#site-footer").innerHTML = `&copy; ${new Date().getFullYear()} Inkwell. Built as a frontend internship project.`;
+  $("#site-header").innerHTML = `<a href="index.html" class="logo">Sesoma</a><nav aria-label="Main">${links}</nav>`;
+  $("#site-footer").innerHTML = `&copy; ${new Date().getFullYear()} Sesoma. Built as a frontend internship project.`;
   const out = $("#logout");
   if (out) out.addEventListener("click", (e) => { e.preventDefault(); localStorage.removeItem("session"); location.href = "index.html"; });
 }
