@@ -1,0 +1,18 @@
+<%- include('partials/header', { title: title }) %>
+<article class="post">
+  <h1><%= blog.title %></h1>
+  <p class="meta">
+    by <%= blog.author ? blog.author.username : 'unknown' %> ·
+    <%= new Date(blog.createdAt).toLocaleString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' }) %>
+  </p>
+  <div class="post-body"><%= blog.content %></div>
+  <div class="actions">
+    <a class="btn secondary" href="/">← Back to all posts</a>
+    <% if (isOwner) { %>
+      <form action="/blogs/<%= blog._id %>/delete" method="POST" class="inline" onsubmit="return confirm('Delete this post?');">
+        <button class="btn danger" type="submit">Delete</button>
+      </form>
+    <% } %>
+  </div>
+</article>
+<%- include('partials/footer') %>
