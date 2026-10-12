@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Blog | Sesoma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="create">
+  <header id="site-header"></header>
+  <main>
+    <section class="form-box wide">
+      <h2 id="page-title">Write a new post</h2>
+      <p class="sub">Your post appears on the home page as soon as you publish.</p>
+      <form id="blog-form" novalidate>
+        <label for="title">Title</label>
+        <input type="text" id="title" maxlength="100" required>
+        <label for="category">Category</label>
+        <select id="category">
+          <option>Tech</option><option>Lifestyle</option><option>Education</option><option>Travel</option><option>Other</option>
+        </select>
+        <label for="content">Content</label>
+        <textarea id="content" required></textarea>
+        <button class="btn" id="save-btn" type="submit">Publish post</button>
+        <div id="msg" class="msg" role="alert"></div>
+      </form>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="script.js"></script>
+</body>
+</html>
