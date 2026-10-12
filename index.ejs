@@ -1,0 +1,26 @@
+<%- include('partials/header', { title: 'Home' }) %>
+<section class="hero">
+  <h1>Latest posts</h1>
+  <p>Every post below is loaded live from MongoDB.</p>
+</section>
+
+<% if (blogs.length === 0) { %>
+  <div class="empty">
+    <p>No posts yet. <% if (currentUser) { %><a href="/blogs/new">Write the first one.</a><% } else { %><a href="/register">Create an account</a> to write the first one.<% } %></p>
+  </div>
+<% } else { %>
+  <div class="grid">
+    <% blogs.forEach(function (b) { %>
+      <article class="card">
+        <h2><a href="/blogs/<%= b._id %>"><%= b.title %></a></h2>
+        <p class="meta">
+          by <%= b.author ? b.author.username : 'unknown' %> ·
+          <%= new Date(b.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) %>
+        </p>
+        <p class="excerpt"><%= b.content.length > 140 ? b.content.slice(0, 140) + '…' : b.content %></p>
+        <a class="read-more" href="/blogs/<%= b._id %>">Read more →</a>
+      </article>
+    <% }) %>
+  </div>
+<% } %>
+<%- include('partials/footer') %>
