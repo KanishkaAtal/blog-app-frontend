@@ -60,3 +60,80 @@ footer{text-align:center;padding:22px;font-family:system-ui,sans-serif;font-size
   .form-box{padding:22px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #1c2030;
+  --muted: #6b7185;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --danger: #dc2626;
+  --border: #e4e6ef;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; padding-top: 1.5rem; padding-bottom: 3rem; }
+.container { width: min(960px, 92%); margin: 0 auto; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header { background: var(--card); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; }
+.brand { font-weight: 800; font-size: 1.3rem; color: var(--text); }
+.nav nav { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.user { color: var(--muted); font-size: 0.95rem; }
+.inline { display: inline; margin: 0; }
+.link-btn { background: none; border: none; color: var(--primary); cursor: pointer; font: inherit; padding: 0; }
+.link-btn:hover { text-decoration: underline; }
+
+.hero { margin: 1rem 0 1.5rem; }
+.hero h1 { margin: 0; font-size: 2rem; }
+.hero p { margin: 0.25rem 0 0; color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.2rem; transition: transform 0.15s, box-shadow 0.15s; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(30, 30, 60, 0.08); }
+.card h2 { margin: 0 0 0.3rem; font-size: 1.2rem; }
+.card h2 a { color: var(--text); }
+.meta { color: var(--muted); font-size: 0.88rem; margin: 0 0 0.7rem; }
+.excerpt { margin: 0 0 0.8rem; color: #3b4057; }
+.read-more { font-weight: 600; font-size: 0.95rem; }
+
+.post { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+.post h1 { margin-top: 0; }
+.post-body { white-space: pre-wrap; font-size: 1.05rem; margin: 1.5rem 0; }
+.actions { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
+
+.form-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; max-width: 420px; margin: 1.5rem auto; }
+.form-card.wide { max-width: 720px; }
+.form-card h1 { margin-top: 0; }
+label { display: block; font-weight: 600; margin-bottom: 1rem; }
+input, textarea { display: block; width: 100%; margin-top: 0.35rem; padding: 0.65rem 0.8rem; border: 1px solid var(--border); border-radius: 8px; font: inherit; background: #fff; }
+input:focus, textarea:focus { outline: 2px solid var(--primary); border-color: transparent; }
+.alt { color: var(--muted); margin-bottom: 0; }
+
+.btn { display: inline-block; background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 0.65rem 1.2rem; font: inherit; font-weight: 600; cursor: pointer; }
+.btn:hover { background: var(--primary-dark); text-decoration: none; }
+.btn.small { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
+.btn.secondary { background: #eceefa; color: var(--primary); }
+.btn.secondary:hover { background: #dfe2f6; }
+.btn.danger { background: var(--danger); }
+.btn.danger:hover { background: #b91c1c; }
+
+.flash { background: #e8f7ee; border: 1px solid #b7e4c7; color: #166534; padding: 0.7rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.error { background: #fdecec; border: 1px solid #f5b5b5; color: #991b1b; padding: 0.7rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.empty { text-align: center; background: var(--card); border: 1px dashed var(--border); border-radius: 14px; padding: 2.5rem 1rem; }
+.site-footer { text-align: center; color: var(--muted); padding: 1.2rem 0; border-top: 1px solid var(--border); background: var(--card); font-size: 0.9rem; }
+
+@media (max-width: 520px) {
+  .post, .form-card { padding: 1.2rem; }
+}
