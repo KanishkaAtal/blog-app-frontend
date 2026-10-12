@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= typeof title !== 'undefined' ? title + ' · ' : '' %>DevBlog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">DevBlog</a>
+      <nav>
+        <a href="/">All posts</a>
+        <% if (currentUser) { %>
+          <a href="/blogs/new">Write</a>
+          <span class="user">Hi, <%= currentUser.username %></span>
+          <form action="/logout" method="POST" class="inline"><button class="link-btn" type="submit">Logout</button></form>
+        <% } else { %>
+          <a href="/login">Login</a>
+          <a class="btn small" href="/register">Register</a>
+        <% } %>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <% if (flash) { %><div class="flash"><%= flash %></div><% } %>
