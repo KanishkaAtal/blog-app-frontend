@@ -1,0 +1,16 @@
+<%- include("partials/header") %>
+<article class="card full">
+  <span class="tag"><%= blog.category %></span>
+  <h1><%= blog.title %></h1>
+  <p class="meta">by <%= blog.author %> · <%= blog.createdAt.toDateString() %>
+    <% if (blog.updatedAt - blog.createdAt > 1000) { %>(edited <%= blog.updatedAt.toDateString() %>)<% } %></p>
+  <div class="content"><%= blog.content %></div>
+  <div class="actions">
+    <a href="/blogs">← Back</a>
+    <a href="/blogs/<%= blog._id %>/edit">Edit</a>
+    <form method="POST" action="/blogs/<%= blog._id %>?_method=DELETE" onsubmit="return confirm('Delete this blog?')">
+      <button class="link danger" type="submit">Delete</button>
+    </form>
+  </div>
+</article>
+<%- include("partials/footer") %>
