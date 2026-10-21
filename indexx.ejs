@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+<form class="filters" method="GET" action="/blogs">
+  <input type="text" name="q" placeholder="Search blogs..." value="<%= q %>">
+  <select name="category">
+    <option value="">All categories</option>
+    <% CATEGORIES.forEach(c => { %>
+      <option value="<%= c %>" <%= c === category ? "selected" : "" %>><%= c %></option>
+    <% }) %>
+  </select>
+  <button class="btn" type="submit">Filter</button>
+  <% if (q || category) { %><a href="/blogs">Clear</a><% } %>
+</form>
+
+<% if (!blogs.length) { %>
+  <p class="empty">No blogs found. <a href="/blogs/new">Write the first one</a>.</p>
+<% } %>
+
+<% blogs.forEach(b => { %>
+  <article class="card">
+    <span class="tag"><%= b.category %></span>
+    <h2><a href="/blogs/<%= b._id %>"><%= b.title %></a></h2>
+    <p class="meta">by <%= b.author %> · <%= b.createdAt.toDateString() %></p>
+    <p><%= b.content.length > 160 ? b.content.slice(0, 160) + "…" : b.content %></p>
+    <div class="actions">
+      <a href="/blogs/<%= b._id %>">Read</a>
+      <a href="/blogs/<%= b._id %>/edit">Edit</a>
+      <form method="POST" action="/blogs/<%= b._id %>?_method=DELETE" onsubmit="return confirm('Delete this blog?')">
+        <button class="link danger" type="submit">Delete</button>
+      </form>
+    </div>
+  </article>
+<% }) %>
+<%- include("partials/footer") %>

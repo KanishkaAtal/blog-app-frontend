@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+<h1><%= heading %></h1>
+<% if (error) { %><p class="error"><%= error %></p><% } %>
+<form class="blog-form" method="<%= method %>" action="<%= action %>">
+  <label>Title
+    <input type="text" name="title" required maxlength="150" value="<%= blog.title || '' %>">
+  </label>
+  <label>Author
+    <input type="text" name="author" required maxlength="80" value="<%= blog.author || '' %>">
+  </label>
+  <label>Category
+    <select name="category">
+      <% CATEGORIES.forEach(c => { %>
+        <option value="<%= c %>" <%= (blog.category || "General") === c ? "selected" : "" %>><%= c %></option>
+      <% }) %>
+    </select>
+  </label>
+  <label>Content
+    <textarea name="content" rows="10" required><%= blog.content || '' %></textarea>
+  </label>
+  <button class="btn" type="submit">Save</button>
+  <a href="/blogs">Cancel</a>
+</form>
+<%- include("partials/footer") %>

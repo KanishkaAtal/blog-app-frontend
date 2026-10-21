@@ -1,0 +1,15 @@
+<%- include('partials/header', { title: title }) %>
+<section class="form-card wide">
+  <h1>Write a new post</h1>
+  <% if (error) { %><div class="error"><%= error %></div><% } %>
+  <form action="/blogs" method="POST">
+    <label>Title
+      <input type="text" name="title" value="<%= values.title || '' %>" required maxlength="120">
+    </label>
+    <label>Content
+      <textarea name="content" rows="12" required><%= values.content || '' %></textarea>
+    </label>
+    <button class="btn" type="submit">Publish</button>
+  </form>
+</section>
+<%- include('partials/footer') %>
