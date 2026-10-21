@@ -106,7 +106,7 @@
     try {
       const { blog } = await api('/api/blogs/' + id);
       const mine = user && String(blog.authorId) === String(user.id);
-      document.title = blog.title + ' – Inkwell';
+      document.title = blog.title + ' – Sesoma';
       app.innerHTML = `
         <article class="article">
           <a href="#/">← All blogs</a>
@@ -221,7 +221,7 @@
   const protectedRoutes = ['dashboard', 'new', 'edit', 'profile'];
 
   async function route() {
-    document.title = 'Inkwell – Full Stack Blog';
+    document.title = 'Sesoma – Full Stack Blog';
     const parts = (location.hash.replace(/^#\/?/, '') || '').split('/');
     const page = parts[0] || 'home';
 
