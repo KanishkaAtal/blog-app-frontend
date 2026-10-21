@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= typeof title !== 'undefined' ? title + ' · ' : '' %>Blog App</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="/">Blog App</a>
+    <div class="nav-links">
+      <a href="/">All blogs</a>
+      <% if (currentUser) { %>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/dashboard/profile">Profile</a>
+        <form action="/logout" method="POST" class="inline">
+          <button type="submit" class="link-btn">Logout</button>
+        </form>
+      <% } else { %>
+        <a href="/login">Login</a>
+        <a href="/register" class="btn small">Sign up</a>
+      <% } %>
+    </div>
+  </nav>
+  <main class="container">
